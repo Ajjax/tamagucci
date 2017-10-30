@@ -1,0 +1,214 @@
+// general style
+
+body{
+  background: url('../images/dark.png');
+}
+
+nav{
+  background: $light-gray;
+  li{
+    padding: 1rem;
+    text-align: center;
+    button{
+      margin: auto!important;
+    }
+  }
+}
+
+ul{
+  list-style-type: none;
+}
+header{
+width: 100%;
+background: $medium-gray;
+
+
+}
+.panneau{
+  height: 70vh;
+  background: $medium-gray;
+}
+.board_button{
+  height: 20vh;
+  background: $light-gray;
+}
+.info_tam{
+    position: relative;
+  ul{
+    li{
+      display: inline-block;
+    }
+  }
+}
+
+
+// Background plateau
+.memphis{
+  background: url(../images/memphis.png);
+}
+
+
+// animation
+
+@keyframes test{
+	0% {
+		background-image: url('../images/tam/mimitos1.gif');
+    // margin-bottom: 0px;
+	}
+	100% {
+		background-image: url('../images/tam/mimitos2.gif');
+    // margin-bottom: 0px;
+	}
+}
+
+@keyframes spaceboots {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.shake{
+  background-image: url('../images/tam/mimitos1.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+	width: 129px;
+	height: 129px;
+	animation-name: spaceboots;
+	animation-duration: 0.8s;
+	transform-origin:50% 50%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+.panneau{position: relative;
+nav{
+  left: 0;
+  background: transparent;
+  float: left;
+  ul{
+    margin: 0;padding: 0;
+  }
+
+}}
+.tamview{
+position: absolute;
+z-index: 999;
+bottom: 0;
+left: 0;
+right: 0;
+background-position: center;
+background-repeat: no-repeat;
+width: 129px;
+height: 129px;
+margin-left: auto;
+margin-right: auto;
+}
+.tamanime {
+	background-image: url('../images/tam/mimitos1.gif');
+  animation-duration: .5s;
+  animation-name: test;
+	animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.tamanime:hover{
+  cursor: pointer;
+  background-image: url('../images/tam/mimitos3.gif');
+  animation-name: none;
+}
+
+.infobulle{
+  display: table;
+  text-align: center;
+  padding: 1rem;
+  // background: $medium-gray;
+  position: absolute;
+  bottom: 129px;
+  left:50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin: auto;
+  .inner_bulle{
+    position: relative;
+
+  }
+  .info{
+    padding: 1rem;
+    text-align: center;
+    background: $medium-gray;
+  }
+  .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+margin: auto;
+  border-top: 20px solid $medium-gray;
+}
+}
+.infobulle:hover{
+  cursor: pointer;
+}
+
+#life:before{
+
+  background-image: url('../images/hearts.png');
+    background-size: cover;
+    display: table;
+    float: left;
+    margin-right: .5rem;
+    width: 30px;
+    height: 30px;
+    content:"";
+}
+// .tamview.tamanime{
+//   ul{
+//     display: none;
+//     li{
+//       transition:left .3s ease, top .3s ease;
+//       top: 0;
+//       right: 0;
+//     }
+//   }
+// }
+// .tamview.tamanime:hover,.tamview.tamanime ul:hover{
+//   ul{
+//     display: block;
+//     width: 100%;
+//     li{
+//
+//     }
+//     li:nth-child(1){
+//       position: absolute;
+// text-align: center;
+// width: 100%;
+// top: -50%;
+// padding: 1rem;
+//     }
+//     li:nth-child(2){
+//       position: absolute;
+// top: -35%;
+// width: 100%;
+// left: 35%;
+// text-align: center;
+// margin: 1rem;
+//     }
+//   }
+// }
