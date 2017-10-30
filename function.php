@@ -22,7 +22,7 @@ function is_loged(){
 }
 
 function get_tam($tam){
-  require('\function\dbcon.php');
+  require(__DIR__.'\function\dbcon.php');
   if ($tam) {
     $query = $db_con->prepare("SELECT * FROM tam WHERE owner =:tam");
     $query->execute(array(':tam'=>$tam));

@@ -22,8 +22,8 @@
         </nav>
       </header>
       <div class="content medium-6 columns medium-centered">
-        <?php if (is_loged()): include('parts/game.php');?>
-        <?php else: include('parts/login.php');?>
+        <?php if (is_loged()): require(__DIR__.'/parts/game.php');?>
+        <?php else: require(__DIR__.'/parts/login.php');?>
         <?php endif; ?>
       </div>
     </div>
