@@ -27,7 +27,12 @@
 
             <!-- Gameboard -->
             <div class="panneau">
+              <!-- <div class="" id="geoloc">
 
+              </div> -->
+              <div class="" id="city">
+
+              </div>
               <nav>
                 <ul>
                   <li id="life"><?php echo $tamtam->life; ?></li>

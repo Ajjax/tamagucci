@@ -13,7 +13,12 @@ $(document).ready(function(){
 
   var life;
   var data;
+  var x = document.getElementById("geoloc");
   function init(){
+
+
+getLocation();
+
     $('.panneau').addClass('memphis');
      data = document.body.getAttribute('user');
     $.ajax({
@@ -33,6 +38,50 @@ $(document).ready(function(){
       }
     });
   }
+  function getLocation() {
+
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+function showPosition(position) {
+    // x.innerHTML = "Latitude: " + position.coords.latitude +
+    // "<br>Longitude: " + position.coords.longitude;
+
+    var lat =  position.coords.latitude ;
+    var long = position.coords.longitude;
+
+    $.ajax({
+            type: 'GET',
+            dataType: "json",
+            url: "http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+long+"&sensor=false",
+            data: {},
+            success: function(data) {
+                $('#city').html(data);
+                $.each( data['results'],function(i, val) {
+                    $.each( val['address_components'],function(i, val) {
+                        if (val['types'] == "locality,political") {
+                            if (val['long_name']!="") {
+                                $('#city').html(val['long_name']);
+                            }
+                            else {
+                                $('#city').html("unknown");
+                            }
+                            console.log(i+", " + val['long_name']);
+                            console.log(i+", " + val['types']);
+                        }
+                    });
+                });
+                console.log('Success');
+            },
+            error: function () { console.log('error');
+            $('#city').html('probleme de connection'); }
+        });
+
+
+}
 
   function feed(){
     var d = new Date().toLocaleString();
