@@ -32,7 +32,8 @@ function get_tam($tam){
         global $tamtam;
         $tamtam = new tam();
         $tamtam->name = $tamrow['name'];
-        $tamtam->life = $tamrow['life'];
+        $tamtam->pv = $tamrow['pv'];
+        $tamtam->pv_max = $tamrow['pv_max'];
         $tamtam->owner = $tamrow['owner'];
         $tamtam->miam = $tamrow['miam'];
 

@@ -27,7 +27,7 @@ $date_creation = date_create_from_format("d/m/Y à H:i:s",$_POST['date']);
 $thedate = date_format($date_creation, "Y-m-d H:i:s");
     // $date = date_create_from_format("d/m/Y H:i:s", $thedate);
   // $bonne_date = date_format($date, "Y-m-d");
-  $query = $db_con->prepare("UPDATE tam SET life=:feed , miam =:miam WHERE owner=:username");
+  $query = $db_con->prepare("UPDATE tam SET pv=:feed , miam =:miam WHERE owner=:username");
   $query->execute(array(':feed'=>$feed,':username'=>$username,':miam'=>date($thedate)));
 }
  ?>

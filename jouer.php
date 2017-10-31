@@ -30,13 +30,17 @@
               <!-- <div class="" id="geoloc">
 
               </div> -->
-              <div class="" id="city">
+              <div class="button" id="city" style="display:table;">
 
               </div>
               <nav>
                 <ul>
-                  <li id="life"><?php echo $tamtam->life; ?></li>
-                </ul>
+                  <li id="pv">
+                    <meter value="<?php echo $tamtam->pv; ?>" min="0" low="<?php echo floor($tamtam->pv_max * 0.33); ?>" high="<?php echo floor($tamtam->pv_max * 0.77); ?>" optimum="<?php echo $tamtam->pv_max;?>" max="<?php echo $tamtam->pv_max;?>"></meter>
+
+                    <!-- <?php echo $tamtam->pv; ?> -->
+                  </li>
+                  </ul>
               </nav>
 
               <!-- infobulle -->

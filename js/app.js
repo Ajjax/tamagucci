@@ -11,7 +11,8 @@ $(document).ready(function(){
   $('.infobulle').hide();
 });
 
-  var life;
+  var pv;
+  var pv_max;
   var data;
   var x = document.getElementById("geoloc");
   function init(){
@@ -31,8 +32,10 @@ getLocation();
         var resp = JSON.parse(response);
         $.each(resp, function(index, el) {
           $('#'+index).html(el);
-          if (index == 'life') {
-            life = el;
+          if (index == 'pv') {
+            $('#'+index).html('<meter value="'+el+'"min="0" low="'+(el*.33)+'" high="'+el*.77+'" optimum="'+el+'" max="'+resp['pv_max']+'"></meter>');
+            pv = el;
+            pv_max = resp['pv_max'];
           }
     });
       }
@@ -86,8 +89,11 @@ function showPosition(position) {
   function feed(){
     var d = new Date().toLocaleString();
     // var datetime = d.getDate();
-    var increase_feed = eval(life+"+1");
-    console.log(increase_feed);
+
+
+    if (pv < pv_max) {
+      var increase_feed = eval(pv+"+5");
+        console.log(increase_feed);
     $.ajax({
       type : 'post',
       url : 'function/ajax.php',
@@ -103,6 +109,10 @@ function showPosition(position) {
         init();
       }
     });
+    }
+    else{
+      console.log('Déja au max');
+    }
   }
 
   function shake(e){
@@ -126,9 +136,6 @@ function return_etat(etat){
     return "<span><img src='images/hearts.png'/></span>";
   }
 }
-
-
-
 
 // Function generale
 
